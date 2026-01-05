@@ -1,4 +1,4 @@
-# 💀 KeepAlive: Decentralized Dead Man's Switch
+# KeepAlive: Decentralized Dead Man's Switch
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Solidity](https://img.shields.io/badge/Solidity-^0.8.19-363636.svg)
