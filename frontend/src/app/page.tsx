@@ -3,8 +3,14 @@
 import { useAccount, useConnect, useDisconnect, useWriteContract } from 'wagmi'
 import { injected } from 'wagmi/connectors'
 import { ABI, CONTRACT_ADDRESS } from '../constants/abi' // Ensure you created this file!
+import { useState, useEffect } from 'react';
 
 export default function Home() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   const { address, isConnected } = useAccount()
   const { connect } = useConnect()
   const { disconnect } = useDisconnect()
@@ -18,12 +24,12 @@ export default function Home() {
       functionName: 'ping',
     })
   }
-
+  if (!mounted) return null;
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-6 bg-slate-900 text-white">
       <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
         <h1 className="text-4xl font-bold mb-8 text-red-500 tracking-tighter">
-          💀 DEAD MAN'S SWITCH
+          DEAD MAN'S SWITCH
         </h1>
       </div>
 
